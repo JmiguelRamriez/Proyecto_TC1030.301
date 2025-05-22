@@ -65,7 +65,7 @@ void Mesa::asignar_cliente(Cliente& cliente) {
 }
 
 void Mesa::liberar_mesa() {
-    estado = false; // cliente_asignado = Cliente(); // solo si quieres limpiar al cliente
+    estado = false;
 }
 
 string Mesa::informacion() {
