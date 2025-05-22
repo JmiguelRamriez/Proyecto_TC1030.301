@@ -1,3 +1,5 @@
+#ifndef MESERO_H
+#define MESERO_H
 #include <iostream>
 #include <string>
 #include "Empleado.h"
@@ -46,3 +48,4 @@ void Mesero::set_disponibilidad(bool d) {
 void Mesero::realizar_tarea() {
     cout << "El mesero " << get_nombre() << " está atendiendo a los clientes." << endl;
 }
+#endif

@@ -1,3 +1,5 @@
+#ifndef EMPLEADO_H
+#define EMPLEADO_H
 #include <iostream>
 #include <string>
 
@@ -58,3 +60,4 @@ void Empleado::set_rol(string r){
 void Empleado::realizar_tarea() {
     cout << "Empleado " << nombre << " está realizando una tarea general." << endl;
 }
+#endif

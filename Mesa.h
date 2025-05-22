@@ -1,3 +1,5 @@
+#ifndef MESA_H
+#define MESA_H
 #include <iostream>
 #include <string>
 #include "Cliente.h"
@@ -59,13 +61,10 @@ void Mesa::set_estado(bool e){
     estado = e;
 }
 
-void Mesa::asignar_cliente(Cliente& cliente) {
-    cliente_asignado = cliente;
-    estado = true;
-}
+
 
 void Mesa::liberar_mesa() {
-    estado = false;
+    estado = false; 
 }
 
 string Mesa::informacion() {
@@ -78,3 +77,4 @@ string Mesa::informacion() {
     info += "\n";
     return info;
 }
+#endif

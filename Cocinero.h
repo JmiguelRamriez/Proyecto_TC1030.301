@@ -1,3 +1,5 @@
+#ifndef COCINERO_H
+#define COCINERO_H
 #include <iostream>
 #include <string>
 #include "Empleado.h"
@@ -53,3 +55,4 @@ void Cocinero::realizar_tarea() {
     cout << "El cocinero " << get_nombre() << " está preparando su especialidad: " 
         << especialidad << " en el turno " << turno << "." << endl;
 }
+#endif

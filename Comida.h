@@ -1,3 +1,5 @@
+#ifndef COMIDA_H
+#define COMIDA_H
 #include <iostream>
 #include <string>
 using namespace std;
@@ -53,3 +55,4 @@ void Comida::set_precio(float p){
 void Comida::set_tiempo_preparacion(int t_p){
     tiempo_preparacion = t_p;
 }
+#endif

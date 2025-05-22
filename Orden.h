@@ -1,3 +1,5 @@
+#ifndef ORDEN_H
+#define ORDEN_H
 #include <iostream>
 #include <string>
 #include "Comida.h"
@@ -76,3 +78,4 @@ string Orden::informacion(){
     }
     cout << "Total: $" << calcular_total() << endl;
 }
+#endif

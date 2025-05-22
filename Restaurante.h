@@ -1,3 +1,5 @@
+#ifndef RESTAURANTE_R
+#define RESTAURANTE_R
 #include <iostream>
 #include <string>
 #include "Mesa.h"
@@ -109,3 +111,4 @@ void Restaurante::mostrar_informacion() {
     cout << "Total de comidas en el menú: " << total_comidas << endl;
     cout << "Total de ordenes activas: " << total_ordenes << endl;
 }
+#endif

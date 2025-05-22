@@ -1,3 +1,5 @@
+#ifndef CLIENTE_H
+#define CLIENTE_H
 #include <iostream>
 #include <string>
 #include "Orden.h"
@@ -60,3 +62,5 @@ void Cliente::pagar_cuenta() {
     float total = orden.calcular_total();
     cout << nombre << " ha pagado $" << total << " por su orden." << endl;
 }
+
+#endif
