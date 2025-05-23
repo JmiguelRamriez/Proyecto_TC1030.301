@@ -10,3 +10,5 @@ Gestión de órdenes:
 
 # Consideraciones
 El programa está desarrollado en C++ estándar, garantizando su compatibilidad con sistemas operativos comunes como Windows, Linux o macOS.
+De momento en el main solo se imprimen objetos para demostrar que las clases funcionan correctamente.
+
