@@ -1,53 +1,61 @@
 #include <iostream>
+#include "Restaurante.h"
+#include "Cocinero.h"
+#include "Mesero.h"
+#include "Mesa.h"
 #include "Comida.h"
 #include "Orden.h"
-#include "Mesa.h"
 #include "Cliente.h"
-#include "Empleado.h"
-#include "Mesero.h"
-#include "Cocinero.h"
-#include "Restaurante.h"
 
 using namespace std;
 
-int main(){
-    //Se crean los objetos
-    Mesa mesa1(1,4, false);//mesa
+int main() {
+    Restaurante rest;
 
-    //Empleados
-    Empleado empleado1("Carlos", 1, "Mesero");
-    Empleado empleado2("Ana", 2, "Cocinera");
-    
-    //Comida
+    Mesa mesa1(1, 4, false);
     Comida comida1("Pizza", 120.00, 10);
-
-    //Orden
-    Orden o1(1, 150.0);
-
-    //Cliente
+    Orden o1(1, true);
     Cliente cli1("Pedro", 1, o1);
 
-    //Arreglos para el restaurante
-    Mesa mesas[1] = { mesa1 };
-    Empleado empleados[2] = { empleado1, empleado2 };
-    Comida comidas[1] = { comida1 };
+    Empleado* emp1 = new Cocinero("Carlos", 101, "Cocinero", "Carnes", "Mañana");
+    Empleado* emp2 = new Mesero("Laura", 102, "Mesero", "Tarde", true);
+    Empleado* emp3 = new Cocinero("Ana", 103, "Cocinero", "Postres", "Tarde");
+    Empleado* emp4 = new Mesero("Luis", 104, "Mesero", "Mañana", false);
 
-    //Objeto restaurante
-    Restaurante r1(mesas, 1, empleados, 2, comidas, 1);
+    rest.agregar_empleado(emp1);
+    rest.agregar_empleado(emp2);
+    rest.agregar_empleado(emp3);
+    rest.agregar_empleado(emp4);
 
-    //Imprimir los objetos
-    cout << "---Mesa---"<< endl;
-    cout << mesa1.informacion();
+    rest.agregar_mesa(mesa1);
+    rest.agregar_comida(comida1);
+    rest.agregar_orden(o1);
 
-    cout << "--- EMPLEADO ---" << endl;
-    cout << "Nombre: " << empleado1.get_nombre() << ", ID: " << empleado1.get_id() << ", Rol: " << empleado1.get_rol() << endl;
+    // Mostrar información general
+    rest.mostrar_informacion();
 
-    cout << "--- RESTAURANTE ---" << endl;
-    cout << "Total Mesas: " << r1.get_total_mesas() << endl;
-    cout << "Total Empleados: " << r1.get_total_empleados() << endl;
-    cout << "Total Comidas: " << r1.get_total_comidas() << endl;
-    cout << "Total Ordenes: " << r1.get_total_ordenes() << endl;
-    
+    // Mostrar tareas
+    cout << "\n--- Tareas de los empleados ---" << endl;
+    rest.realizar_tareas_empleados();
+
+    // Mostrar objetos individuales
+    cout << "\n--- Información de objetos individuales ---\n";
+
+    cout << "\n[MESA]\n";
+    cout << mesa1.informacion() << endl;
+
+
+    cout << "\n[ORDEN]\n";
+    cout << o1.informacion() << endl;
+
+    cout << "\n[EMPLEADOS]\n";
+    emp1->realizar_tarea();
+    emp2->realizar_tarea();
+    emp3->realizar_tarea();
+    emp4->realizar_tarea();
+
+    // Liberar memoria de empleados
+    rest.liberar_empleados();
+
     return 0;
-
 }

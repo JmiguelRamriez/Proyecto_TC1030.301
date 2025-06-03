@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Restaurante {a
+class Restaurante {
 private:
     Mesa mesas[10];
     Empleado* empleados[5]; 
@@ -32,6 +32,7 @@ public:
 
     void agregar_mesa(Mesa m);
     void agregar_empleado(Empleado* e); 
+    void realizar_tareas_empleados();
     void agregar_comida(Comida c);
     void agregar_orden(Orden o);
     void liberar_empleados();
@@ -86,6 +87,14 @@ void Restaurante::agregar_empleado(Empleado* e) {
     }
 }
 
+void Restaurante::realizar_tareas_empleados() {
+    for (int i = 0; i < total_empleados; i++) {
+        if (empleados[i] != nullptr) {
+            empleados[i]->realizar_tarea();
+        }
+    }
+}
+
 void Restaurante::agregar_comida(Comida c) {
     if (total_comidas < 20) {
         menu[total_comidas++] = c;
@@ -98,14 +107,12 @@ void Restaurante::agregar_orden(Orden o) {
     }
 }
 
-// Liberar memoria
 void Restaurante::liberar_empleados() {
     for (int i = 0; i < total_empleados; i++) {
         delete empleados[i]; 
     }
 }
 
-// Mostrar info
 void Restaurante::mostrar_informacion() {
     cout << "Total de mesas: " << total_mesas << endl;
     cout << "Total de empleados: " << total_empleados << endl;
