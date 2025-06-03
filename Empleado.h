@@ -6,7 +6,7 @@
 using namespace std;
 
 class Empleado{
-    private:
+    protected:
     string nombre;
     int id;
     string rol;
@@ -22,7 +22,7 @@ class Empleado{
     void set_nombre(string nom);
     void set_id(int i);
     void set_rol(string r);
-    void realizar_tarea();
+    virtual void realizar_tarea();
 };
 
 Empleado::Empleado(){
