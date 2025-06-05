@@ -2,6 +2,7 @@
 #define RESTAURANTE_R
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Mesa.h"
 #include "Empleado.h"
 #include "Comida.h"
@@ -37,7 +38,7 @@ public:
     void agregar_orden(Orden o);
     void liberar_empleados();
 
-    void mostrar_informacion();
+    string mostrar_informacion();
 };
 
 // Constructor por defecto
@@ -69,10 +70,18 @@ Restaurante::Restaurante(Mesa m[], int t_m, Empleado* e[], int t_e, Comida c[], 
 }
 
 // Getters
-int Restaurante::get_total_mesas() { return total_mesas; }
-int Restaurante::get_total_empleados() { return total_empleados; }
-int Restaurante::get_total_comidas() { return total_comidas; }
-int Restaurante::get_total_ordenes() { return total_ordenes; }
+int Restaurante::get_total_mesas() {
+    return total_mesas; 
+}
+int Restaurante::get_total_empleados() { 
+    return total_empleados; 
+}
+int Restaurante::get_total_comidas() {
+    return total_comidas; 
+}
+int Restaurante::get_total_ordenes() { 
+    return total_ordenes; 
+}
 
 // Agregar elementos
 void Restaurante::agregar_mesa(Mesa m) {
@@ -113,10 +122,12 @@ void Restaurante::liberar_empleados() {
     }
 }
 
-void Restaurante::mostrar_informacion() {
-    cout << "Total de mesas: " << total_mesas << endl;
-    cout << "Total de empleados: " << total_empleados << endl;
-    cout << "Total de comidas en el menú: " << total_comidas << endl;
-    cout << "Total de ordenes activas: " << total_ordenes << endl;
+string Restaurante::mostrar_informacion() {
+    string info = "=== INFORMACIÓN DEL RESTAURANTE ===\n";
+    info += "Total de mesas: " + to_string(total_mesas) + "\n";
+    info += "Total de empleados: " + to_string(total_empleados) + "\n";
+    info += "Total de comidas en el menú: " + to_string(total_comidas) + "\n";
+    info += "Total de ordenes activas: " + to_string(total_ordenes) + "\n";
+    return info;
 }
 #endif

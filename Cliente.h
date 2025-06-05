@@ -9,19 +9,19 @@ using namespace std;
 class Cliente{
     private:
     string nombre;
-    int mesa_asignada;
+    string mesa_asignada;
     Orden orden;
 
     public:
     Cliente();
-    Cliente(string nom, int m_s, Orden o);
+    Cliente(string nom, string m_s, Orden o);
 
     string get_nombre();
-    int get_mesa_asignada();
+    string get_mesa_asignada();
     Orden get_orden();
 
     void set_nombre(string nom);
-    void set_mesa_asignada(int m_a);
+    void set_mesa_asignada(string m_a);
     void set_orden(Orden o);
     void hacer_pedido(Orden& o);
     void pagar_cuenta();
@@ -29,16 +29,16 @@ class Cliente{
 
 Cliente::Cliente(){
     nombre = "";
-    mesa_asignada = 0;
+    mesa_asignada = "";
 }
 
-Cliente::Cliente(string nom, int m_a, Orden o): nombre(nom), mesa_asignada(m_a), orden(o){}
+Cliente::Cliente(string nom, string m_a, Orden o): nombre(nom), mesa_asignada(m_a), orden(o){}
 
 string Cliente::get_nombre(){
     return nombre;
 }
 
-int Cliente::get_mesa_asignada(){
+string Cliente::get_mesa_asignada(){
     return mesa_asignada;
 }
 
@@ -50,7 +50,7 @@ void Cliente::set_nombre(string nom){
     nombre = nom;
 }
 
-void Cliente::set_mesa_asignada(int m_a){
+void Cliente::set_mesa_asignada(string m_a){
     mesa_asignada = m_a;
 }
 

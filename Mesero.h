@@ -6,12 +6,12 @@
 
 using namespace std;
 
-class Mesero: public Empleado{
-    private:
+class Mesero : public Empleado {
+private:
     string turno;
     bool disponibilidad;
 
-    public:
+public:
     Mesero();
     Mesero(string nom, int i, string r, string tr, bool d);
 
@@ -19,15 +19,18 @@ class Mesero: public Empleado{
     bool get_disponibilidad();
     void set_turno(string tr);
     void set_disponibilidad(bool d);
-    void realizar_tarea();
+    virtual void realizar_tarea();
 };
 
-Mesero::Mesero(): Empleado(){
+Mesero::Mesero() : Empleado() {
     turno = "";
     disponibilidad = false;
+    set_tipo_empleado("Mesero");  
 }
 
-Mesero::Mesero(string nom, int i, string r, string tr, bool d):Empleado(nom, i, r), turno(tr), disponibilidad(d) {}
+Mesero::Mesero(string nom, int i, string r, string tr, bool d):Empleado(nom, i, r), turno(tr), disponibilidad(d) {
+    set_tipo_empleado("Mesero");  
+}
 
 string Mesero::get_turno() {
     return turno;
@@ -48,4 +51,5 @@ void Mesero::set_disponibilidad(bool d) {
 void Mesero::realizar_tarea() {
     cout << "El mesero " << get_nombre() << " está atendiendo a los clientes." << endl;
 }
+
 #endif

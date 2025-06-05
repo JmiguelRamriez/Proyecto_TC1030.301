@@ -20,17 +20,20 @@ public:
 
     void set_especialidad(string esp);
     void set_turno(string tr);
-    void realizar_tarea();
+    virtual void realizar_tarea();
 };
 
 // Constructor por defecto
 Cocinero::Cocinero() : Empleado() {
     especialidad = "";
     turno = "";
+    set_tipo_empleado("Cocinero"); 
 }
 
 // Constructor parametrizado
-Cocinero::Cocinero(string nom, int i, string r, string esp, string tr): Empleado(nom, i, r), especialidad(esp), turno(tr) {}
+Cocinero::Cocinero(string nom, int i, string r, string esp, string tr): Empleado(nom, i, r), especialidad(esp), turno(tr) {
+    set_tipo_empleado("Cocinero"); 
+}
 
 // Getters
 string Cocinero::get_especialidad() {
@@ -53,6 +56,7 @@ void Cocinero::set_turno(string tr) {
 // Método realizar tarea
 void Cocinero::realizar_tarea() {
     cout << "El cocinero " << get_nombre() << " está preparando su especialidad: " 
-        << especialidad << " en el turno " << turno << "." << endl;
+         << especialidad << " en el turno " << turno << "." << endl;
 }
+
 #endif

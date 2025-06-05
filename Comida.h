@@ -22,6 +22,7 @@ class Comida {
     void set_nombre(string n);
     void set_precio(float p);
     void set_tiempo_preparacion(int t_p);
+    string informacion();
 };
 
 Comida::Comida(){
@@ -55,4 +56,12 @@ void Comida::set_precio(float p){
 void Comida::set_tiempo_preparacion(int t_p){
     tiempo_preparacion = t_p;
 }
+
+string Comida::informacion(){
+    string info = "Nombre: " + nombre + "\n";
+    info += "Precio: $" + to_string(precio) + "\n";
+    info += "Tiempo de preparación: " + to_string(tiempo_preparacion) + " minutos\n";
+    return info;
+}
+
 #endif
