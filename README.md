@@ -22,6 +22,7 @@ Este proyecto es un sistema de simulación para gestionar el funcionamiento inte
 El programa está desarrollado en C++ estándar, garantizando su compatibilidad con sistemas operativos comunes como Windows, Linux o macOS.
 
 correr en linux: "/a.out"
+
 correr en windows: "a.exe"
 
 ### Recomendaciones de Uso
