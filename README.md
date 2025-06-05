@@ -20,7 +20,7 @@ Este proyecto es un sistema de simulación para gestionar el funcionamiento inte
 
 # Consideraciones
 El programa está desarrollado en C++ estándar, garantizando su compatibilidad con sistemas operativos comunes como Windows, Linux o macOS.
-## Recomendaciones de Uso
+### Recomendaciones de Uso
 - Ingresar solo valores numéricos cuando se soliciten
 - Respetar los límites del sistema
 - Seguir el flujo secuencial del menú
