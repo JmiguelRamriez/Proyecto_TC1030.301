@@ -11,6 +11,7 @@ class Mesa{
     int numero;
     int capacidad;
     bool estado;
+    Cliente* cliente_actual;
 
     public:
     Mesa();
@@ -27,6 +28,10 @@ class Mesa{
     void set_estado(bool e);
     void asignar_cliente(Cliente& cliente);
     void liberar_mesa();
+        void asignar_cliente(Cliente* c) { 
+        estado = true;
+        cliente_actual = c;
+    }
 };
 
 Mesa::Mesa(){
@@ -35,7 +40,8 @@ Mesa::Mesa(){
     estado = false;
 }
 
-Mesa::Mesa(int n, int c, bool e): numero(n), capacidad(c), estado(e){}
+Mesa::Mesa(int n, int c, bool e)
+: numero(n), capacidad(c), estado(e){}
 
 int Mesa::get_numero(){
     return numero;

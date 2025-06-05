@@ -28,7 +28,8 @@ Mesero::Mesero() : Empleado() {
     set_tipo_empleado("Mesero");  
 }
 
-Mesero::Mesero(string nom, int i, string r, string tr, bool d):Empleado(nom, i, r), turno(tr), disponibilidad(d) {
+Mesero::Mesero(string nom, int i, string r, string tr, bool d)
+:Empleado(nom, i, r), turno(tr), disponibilidad(d) {
     set_tipo_empleado("Mesero");  
 }
 

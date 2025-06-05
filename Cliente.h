@@ -32,7 +32,8 @@ Cliente::Cliente(){
     mesa_asignada = "";
 }
 
-Cliente::Cliente(string nom, string m_a, Orden o): nombre(nom), mesa_asignada(m_a), orden(o){}
+Cliente::Cliente(string nom, string m_a, Orden o): 
+nombre(nom), mesa_asignada(m_a), orden(o){}
 
 string Cliente::get_nombre(){
     return nombre;

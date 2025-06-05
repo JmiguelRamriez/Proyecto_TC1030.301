@@ -20,7 +20,7 @@ public:
 
     int get_numero_orden();
     bool get_estado();
-    float calcular_total();
+    int calcular_total();
     string informacion();
 
     void set_numero_orden(int n_o);
@@ -34,7 +34,8 @@ Orden::Orden() {
     estado = false;
 }
 
-Orden::Orden(int n_o, bool e) : numero_orden(n_o), estado(e) {
+Orden::Orden(int n_o, bool e) 
+: numero_orden(n_o), estado(e) {
     cantidad_comidas = 0;
 }
 
@@ -46,8 +47,8 @@ bool Orden::get_estado() {
     return estado;
 }
 
-float Orden::calcular_total() {
-    float total = 0.0;
+int Orden::calcular_total() {
+    int total = 0.0;
     for (int i = 0; i < cantidad_comidas; i++) {
         total += listaComida[i].get_precio();
     }
@@ -77,8 +78,9 @@ string Orden::informacion() {
     info += "Comidas:\n";
     for (int i = 0; i < cantidad_comidas; i++) {
         info += "- " + listaComida[i].get_nombre() +
-                " | $" + to_string(listaComida[i].get_precio()) +
-                " | Tiempo: " + to_string(listaComida[i].get_tiempo_preparacion()) + " min\n";
+        " | $" + to_string(listaComida[i].get_precio()) +
+        " | Tiempo: " + to_string(listaComida[i].get_tiempo_preparacion()) +
+        " min\n";
     }
     info += "Total: $" + to_string(calcular_total()) + "\n";
     return info;

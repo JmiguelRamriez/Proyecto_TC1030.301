@@ -31,7 +31,7 @@ public:
     int get_total_comidas();
     int get_total_ordenes();
 
-    void agregar_mesa(Mesa m);
+    void agregar_mesa(Mesa& m);
     void agregar_empleado(Empleado* e); 
     void realizar_tareas_empleados();
     void agregar_comida(Comida c);
@@ -84,7 +84,7 @@ int Restaurante::get_total_ordenes() {
 }
 
 // Agregar elementos
-void Restaurante::agregar_mesa(Mesa m) {
+void Restaurante::agregar_mesa(Mesa &m) {
     if (total_mesas < 10) {
         mesas[total_mesas++] = m;
     }
@@ -118,8 +118,10 @@ void Restaurante::agregar_orden(Orden o) {
 
 void Restaurante::liberar_empleados() {
     for (int i = 0; i < total_empleados; i++) {
-        delete empleados[i]; 
+        delete empleados[i];
+        empleados[i] = nullptr; 
     }
+    total_empleados = 0; 
 }
 
 string Restaurante::mostrar_informacion() {

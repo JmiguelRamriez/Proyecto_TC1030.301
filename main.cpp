@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include "Restaurante.h"
 #include "Cocinero.h"
 #include "Mesero.h"
@@ -12,16 +11,16 @@ using namespace std;
 
 void limpiar_consola(){
     #ifdef _WIN32
-        system("cls");  // Comando para limpiar la consola en sistemas Windows
+        system("cls");// Comando para limpiar la consola en sistemas Windows
     #else
-        system("clear");  // Comando para limpiar la consola en sistemas Unix/Linux
+        system("clear");// Comando para limpiar la consola en sistemas Unix/Linux
     #endif
 }
 
 void pausar() {
     cout << "\nPresiona Enter para continuar...";
-    cin.ignore();  // Limpia el buffer
-    cin.get();     // Espera a que el usuario presione Enter
+    cin.ignore();// Limpia el buffer
+    cin.get();// Espera a que el usuario presione Enter
 }
 
 //Funcion para mostrar menu 
@@ -34,6 +33,7 @@ void mostrarMenu(){
 }
 
 int main() {
+
     //Creacion del restaurante
     Restaurante rest;
 
@@ -63,20 +63,17 @@ int main() {
     rest.agregar_empleado(emp4);
     rest.agregar_empleado(emp5);
    
-    //Creacion del objeto cliente
-
-
     //Creacion del objeto comida
-    Comida comida1("Pizza", 120.00, 10);
-    Comida comida2("Pizza vegetariana", 125.0, 20);
-    Comida comida3("Ensalada César", 80.5, 10);
-    Comida comida4("Pasta Alfredo", 130.0, 18);
-    Comida comida5("Tacos al pastor", 110.0, 10);
-    Comida comida6("Enchiladas", 110.0, 18);
-    Comida comida7("Sándwich club", 95.0, 12);
-    Comida comida8("Lasagna", 140.0, 25);
-    Comida comida9("Helado de vainilla", 60.0, 5);
-    Comida comida10("Postre de chocolate", 70.0, 8);
+    Comida comida1("Pizza", 120, 10);
+    Comida comida2("Pizza vegetariana", 125, 20);
+    Comida comida3("Ensalada César", 80.5f, 10);
+    Comida comida4("Pasta Alfredo", 130, 18);
+    Comida comida5("Tacos al pastor", 110, 10);
+    Comida comida6("Enchiladas", 110, 18);
+    Comida comida7("Sándwich club", 95, 12);
+    Comida comida8("Lasagna", 140, 25);
+    Comida comida9("Helado de vainilla", 60, 5);
+    Comida comida10("Postre de chocolate", 70, 8);
 
     //Se agrega la comida al restaurante
     rest.agregar_comida(comida1);
@@ -93,7 +90,8 @@ int main() {
     //Arreglos para el restaurante
     Mesa mesas[4] = {m1,m2,m3,m4};
     Empleado* empleados[5] = { emp1, emp2,emp3,emp4,emp5 };
-    Comida comidas[10] = { comida1,comida2,comida3,comida4,comida5,comida6,comida7,comida8,comida9,comida10 };
+    Comida comidas[10] = { comida1,comida2,comida3,comida4,comida5,comida6,
+        comida7,comida8,comida9,comida10 };
     
     int opcion;
     do{
@@ -116,25 +114,19 @@ int main() {
                 limpiar_consola();   
                 break;
             case 3: 
-                string nombre, correo, numero;
-                cout << "Ingrese su nombre: "; 
-                getline(cin, nombre);
-                cout << "Ingrese su numero de mesa: "; 
-                getline(cin, numero);
-
-                
                 // Mostrar mesas disponibles
                 cout << "Mesas disponibles:\n";
-                bool hayMesaDisponible = false;
+                bool MesaDisponible = false;
                 for (int i = 0; i < 4; i++) {
                     if (!mesas[i].get_estado()) {
-                        cout << "- Mesa " << mesas[i].get_numero() 
-                        << " (capacidad: " << mesas[i].get_capacidad() << " personas)\n";
-                        hayMesaDisponible = true;
+                        cout << "- Mesa " << mesas[i].get_numero()
+                            << " (capacidad: " << mesas[i].get_capacidad()
+                            << " personas)\n";
+                        MesaDisponible = true;
                     }
                 }
 
-                if (!hayMesaDisponible) {
+                if (!MesaDisponible) {
                     cout << "No hay mesas disponibles en este momento.\n";
                     pausar();
                     limpiar_consola();
@@ -148,7 +140,8 @@ int main() {
 
                 bool mesaValida = false;
                 for (int i = 0; i < 4; i++) {
-                    if (mesas[i].get_numero() == numMesa && !mesas[i].get_estado()) {
+                    if (mesas[i].get_numero() == numMesa &&
+                        !mesas[i].get_estado()) {
                         mesas[i].set_estado(true);
                         mesaValida = true;
                         break;
@@ -162,17 +155,30 @@ int main() {
                     break;
                 }
 
+                // Solicitar el nombre del cliente
+                string nombreCliente;
+                cout << "Ingrese su nombre: ";
+                cin.ignore();
+                getline(cin, nombreCliente);
+
                 // Crear objeto orden
                 Orden orden(rest.get_total_ordenes() + 1, false);
-                Cliente cliente1(nombre, numero, orden);
+                limpiar_consola();
                 // Selección de comidas
                 char agregar;
                 do {
                     cout << "\n--- Menú ---\n";
                     for (int i = 0; i < 10; i++) {
+                        float precio = comidas[i].get_precio();
                         cout << (i + 1) << ". " << comidas[i].get_nombre()
-                            << " - $" << comidas[i].get_precio() << endl;
+                         << " - $";
+                        if (precio == (int)precio) {
+                            cout << (int)precio << endl;
+                        } else {
+                            cout << precio << endl;
+                        }
                     }
+
                     int eleccion;
                     cout << "Elija el número de comida que desea agregar: ";
                     cin >> eleccion;
@@ -183,9 +189,15 @@ int main() {
                     } else {
                         cout << "Opción inválida.\n";
                     }
-
+                    // Validar entrada 's' o 'n'
                     cout << "¿Desea agregar otra comida? (s/n): ";
                     cin >> agregar;
+                    while (agregar != 's' && agregar != 'S' && agregar != 'n'
+                         && agregar != 'N') {
+                        cout << "Por favor escriba 's' para sí o 'n' para no: ";
+                        cin >> agregar;
+                    }
+                    limpiar_consola();
                 } while (agregar == 's' || agregar == 'S');
 
                 // Asignar mesero disponible
@@ -196,31 +208,36 @@ int main() {
                         if (m->get_disponibilidad()) {
                             meseroAsignado = m;
                             m->set_disponibilidad(false);
+                            limpiar_consola();
                             break;
                         }
                     }
                 }
 
                 if (meseroAsignado != nullptr) {
-                    cout << "Mesero asignado: " << meseroAsignado->get_nombre() << endl;
+                    cout << "Mesero asignado: " << meseroAsignado->get_nombre();
                 } else {
-                    cout << "No hay meseros disponibles. La orden no puede ser procesada.\n";
+                    cout << "No hay meseros disponibles.\n";
                     pausar();
                     limpiar_consola();
                     break;
                 }
-
+            
                 // Agregar la orden al restaurante
                 rest.agregar_orden(orden);
+
+                // Crear cliente con la orden y la mesa asignada
+                Cliente cliente(nombreCliente, to_string(numMesa), orden);
 
                 // Mostrar información final
                 cout << "\nOrden creada con éxito:\n";
                 cout << orden.informacion();
+
                 pausar();
                 limpiar_consola();
-                break;
+                break;  
             }
-
     } while (opcion != 4); 
+    rest.liberar_empleados();  // Libera memoria 
     return 0;
 }

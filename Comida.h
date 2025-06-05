@@ -8,19 +8,19 @@ class Comida {
 
     private:
     string nombre;
-    float precio;
+    int precio;
     int tiempo_preparacion;
 
     public:
     Comida();
-    Comida(string n, float p, int t_p);
+    Comida(string n, int p, int t_p);
 
     string get_nombre();
-    float get_precio();
+    int get_precio();
     int get_tiempo_preparacion();
 
     void set_nombre(string n);
-    void set_precio(float p);
+    void set_precio(int p);
     void set_tiempo_preparacion(int t_p);
     string informacion();
 };
@@ -31,13 +31,14 @@ Comida::Comida(){
     tiempo_preparacion = 0.0;
 }
 
-Comida::Comida(string n, float p , int t_p):nombre(n), precio(p), tiempo_preparacion(t_p){}
+Comida::Comida(string n, int p , int t_p):nombre(n), precio(p), 
+tiempo_preparacion(t_p){}
 
 string Comida::get_nombre(){
     return nombre;
 }
 
-float Comida::get_precio(){
+int Comida::get_precio(){
     return precio;
 }
 
@@ -49,7 +50,7 @@ void Comida::set_nombre(string n){
     nombre = n;
 }
 
-void Comida::set_precio(float p){
+void Comida::set_precio(int p){
     precio = p;
 }
 
@@ -60,7 +61,8 @@ void Comida::set_tiempo_preparacion(int t_p){
 string Comida::informacion(){
     string info = "Nombre: " + nombre + "\n";
     info += "Precio: $" + to_string(precio) + "\n";
-    info += "Tiempo de preparación: " + to_string(tiempo_preparacion) + " minutos\n";
+    info += "Tiempo de preparación: " + to_string(tiempo_preparacion) + 
+    " minutos\n";
     return info;
 }
 

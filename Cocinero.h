@@ -31,7 +31,8 @@ Cocinero::Cocinero() : Empleado() {
 }
 
 // Constructor parametrizado
-Cocinero::Cocinero(string nom, int i, string r, string esp, string tr): Empleado(nom, i, r), especialidad(esp), turno(tr) {
+Cocinero::Cocinero(string nom, int i, string r, string esp, string tr): 
+Empleado(nom, i, r), especialidad(esp), turno(tr) {
     set_tipo_empleado("Cocinero"); 
 }
 

@@ -38,7 +38,8 @@ Empleado::Empleado() {
     tipo_empleado = "Empleado";
 }
 
-Empleado::Empleado(string nom, int i, string r) : nombre(nom), id(i), rol(r) {
+Empleado::Empleado(string nom, int i, string r) 
+: nombre(nom), id(i), rol(r) {
     tipo_empleado = "Empleado";
 }
 
@@ -75,7 +76,7 @@ void Empleado::set_tipo_empleado(string tipo) {
 }
 
 void Empleado::realizar_tarea() {
-    cout << "Empleado " << nombre << " está realizando una tarea general." << endl;
+    cout<<"Empleado"<<nombre<< " está realizando una tarea general." << endl;
 }
 
 #endif
