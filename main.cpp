@@ -102,6 +102,12 @@ int main() {
         switch (opcion){
             case 1:
                 cout << rest.mostrar_informacion() << endl;
+                cout << "---Cocineros---" << endl;
+                for (int i = 0; i < 5; i++) {
+                    if (empleados[i]->get_tipo_empleado() == "Cocinero") {
+                        empleados[i]->realizar_tarea();
+                    }
+                }
                 pausar();
                 limpiar_consola();
                 break;

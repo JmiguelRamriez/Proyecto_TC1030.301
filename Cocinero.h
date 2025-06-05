@@ -56,8 +56,8 @@ void Cocinero::set_turno(string tr) {
 
 // Método realizar tarea
 void Cocinero::realizar_tarea() {
-    cout << "El cocinero " << get_nombre() << " está preparando su especialidad: " 
-         << especialidad << " en el turno " << turno << "." << endl;
+    cout << "El cocinero(a) " << get_nombre() << " especializado en: " 
+         << especialidad << endl << "trabaja en el turno de la " << turno << endl;
 }
 
 #endif
