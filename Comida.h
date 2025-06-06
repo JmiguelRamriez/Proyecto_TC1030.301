@@ -7,22 +7,22 @@ using namespace std;
 class Comida {
 
     private:
-    string nombre;
-    int precio;
-    int tiempo_preparacion;
+        string nombre;
+        int precio;
+        int tiempo_preparacion;
 
     public:
-    Comida();
-    Comida(string n, int p, int t_p);
+        Comida();
+        Comida(string n, int p, int t_p);
 
-    string get_nombre();
-    int get_precio();
-    int get_tiempo_preparacion();
+        string get_nombre();
+        int get_precio();
+        int get_tiempo_preparacion();
 
-    void set_nombre(string n);
-    void set_precio(int p);
-    void set_tiempo_preparacion(int t_p);
-    string informacion();
+        void set_nombre(string n);
+        void set_precio(int p);
+        void set_tiempo_preparacion(int t_p);
+        string informacion();
 };
 
 Comida::Comida(){

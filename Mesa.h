@@ -8,30 +8,30 @@ using namespace std;
 
 class Mesa{
     private:
-    int numero;
-    int capacidad;
-    bool estado;
-    Cliente* cliente_actual;
+        int numero;
+        int capacidad;
+        bool estado;
+        Cliente* cliente_actual;
 
     public:
-    Mesa();
-    Mesa(int n, int c, bool e);
+        Mesa();
+        Mesa(int n, int c, bool e);
 
-    int get_numero();
-    int get_capacidad();
-    bool get_estado();
-    Cliente cliente_asignado;
-    string informacion();
+        int get_numero();
+        int get_capacidad();
+        bool get_estado();
+        Cliente cliente_asignado;
+        string informacion();
 
-    void set_numero (int n);
-    void set_capacidad(int c);
-    void set_estado(bool e);
-    void asignar_cliente(Cliente& cliente);
-    void liberar_mesa();
-        void asignar_cliente(Cliente* c) { 
-        estado = true;
-        cliente_actual = c;
-    }
+        void set_numero (int n);
+        void set_capacidad(int c);
+        void set_estado(bool e);
+        void asignar_cliente(Cliente& cliente);
+        void liberar_mesa();
+            void asignar_cliente(Cliente* c) { 
+            estado = true;
+            cliente_actual = c;
+        }
 };
 
 Mesa::Mesa(){

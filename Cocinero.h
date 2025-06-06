@@ -6,21 +6,27 @@
 
 using namespace std;
 
+/**
+ * Cocinero
+ * Clase que representa a un empleado cocinero en el restaurante
+ * Hereda de la clase base Empleado y añade funcionalidades específicas
+ */
 class Cocinero : public Empleado {
-private:
-    string especialidad;
-    string turno;
+//Atributos
+    private: 
+        string especialidad;
+        string turno;
 
-public:
-    Cocinero();
-    Cocinero(string nom, int i, string r, string esp, string tr);
+    public:
+        Cocinero();
+        Cocinero(string nom, int i, string r, string esp, string tr);
 
-    string get_especialidad();
-    string get_turno();
+        string get_especialidad();
+        string get_turno();
 
-    void set_especialidad(string esp);
-    void set_turno(string tr);
-    virtual void realizar_tarea();
+        void set_especialidad(string esp);
+        void set_turno(string tr);
+        virtual void realizar_tarea();
 };
 
 // Constructor por defecto

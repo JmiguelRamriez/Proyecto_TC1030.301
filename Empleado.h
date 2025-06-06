@@ -6,27 +6,27 @@
 using namespace std;
 
 class Empleado {
-protected:
-    string nombre;
-    int id;
-    string rol;
-    string tipo_empleado; 
+    protected:
+        string nombre;
+        int id;
+        string rol;
+        string tipo_empleado; 
 
-public:
-    Empleado();
-    Empleado(string nom, int id, string rol);
+    public:
+        Empleado();
+        Empleado(string nom, int id, string rol);
 
-    string get_nombre();
-    int get_id();
-    string get_rol();
-    string get_tipo_empleado();  
+        string get_nombre();
+        int get_id();
+        string get_rol();
+        string get_tipo_empleado();  
 
-    void set_nombre(string nom);
-    void set_id(int i);
-    void set_rol(string r);
-    void set_tipo_empleado(string tipo); 
+        void set_nombre(string nom);
+        void set_id(int i);
+        void set_rol(string r);
+        void set_tipo_empleado(string tipo); 
 
-    virtual void realizar_tarea(); 
+        virtual void realizar_tarea(); 
 };
 
 // Implementación

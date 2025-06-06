@@ -11,34 +11,41 @@
 
 using namespace std;
 
+/**
+ * Restaurante
+ * Clase principal que gestiona todas las operaciones del restaurante
+ * 
+ * Controla las mesas, empleados, menú y órdenes del sistema.
+ * Permite agregar, mostrar y gestionar estos elementos.
+ */
+
 class Restaurante {
-private:
-    Mesa mesas[10];
-    Empleado* empleados[5]; 
-    Comida menu[20];
-    Orden ordenes[30];
-    int total_ordenes;
-    int total_empleados;
-    int total_comidas;
-    int total_mesas;
+    private:
+        Mesa mesas[10];
+        Empleado* empleados[6]; 
+        Comida menu[20];
+        Orden ordenes[30];
+        int total_ordenes;
+        int total_empleados;
+        int total_comidas;
+        int total_mesas;
 
-public:
-    Restaurante();
-    Restaurante(Mesa m[], int t_m, Empleado* e[], int t_e, Comida c[], int t_c);
+    public:
+        Restaurante();
+        Restaurante(Mesa m[], int t_m, Empleado* e[], int t_e, Comida c[], int t_c);
 
-    int get_total_mesas();
-    int get_total_empleados();
-    int get_total_comidas();
-    int get_total_ordenes();
+        int get_total_mesas();
+        int get_total_empleados();
+        int get_total_comidas();
+        int get_total_ordenes();
 
-    void agregar_mesa(Mesa& m);
-    void agregar_empleado(Empleado* e); 
-    void realizar_tareas_empleados();
-    void agregar_comida(Comida c);
-    void agregar_orden(Orden o);
-    void liberar_empleados();
-
-    string mostrar_informacion();
+        void agregar_mesa(Mesa& m);
+        void agregar_empleado(Empleado* e); 
+        void realizar_tareas_empleados();
+        void agregar_comida(Comida c);
+        void agregar_orden(Orden o);
+        void liberar_empleados();
+        string mostrar_informacion();
 };
 
 // Constructor por defecto
@@ -56,7 +63,7 @@ Restaurante::Restaurante(Mesa m[], int t_m, Empleado* e[], int t_e, Comida c[], 
         mesas[i] = m[i];
     }
 
-    total_empleados = (t_e <= 5) ? t_e : 5;
+    total_empleados = (t_e <= 6) ? t_e : 6;
     for (int i = 0; i < total_empleados; i++) {
         empleados[i] = e[i]; 
     }
@@ -91,7 +98,7 @@ void Restaurante::agregar_mesa(Mesa &m) {
 }
 
 void Restaurante::agregar_empleado(Empleado* e) {
-    if (total_empleados < 5) {
+    if (total_empleados < 6) {
         empleados[total_empleados++] = e;
     }
 }

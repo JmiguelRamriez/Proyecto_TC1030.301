@@ -7,19 +7,19 @@
 using namespace std;
 
 class Mesero : public Empleado {
-private:
-    string turno;
-    bool disponibilidad;
+    private:
+        string turno;
+        bool disponibilidad;
 
-public:
-    Mesero();
-    Mesero(string nom, int i, string r, string tr, bool d);
+    public:
+        Mesero();
+        Mesero(string nom, int i, string r, string tr, bool d);
 
-    string get_turno();
-    bool get_disponibilidad();
-    void set_turno(string tr);
-    void set_disponibilidad(bool d);
-    virtual void realizar_tarea();
+        string get_turno();
+        bool get_disponibilidad();
+        void set_turno(string tr);
+        void set_disponibilidad(bool d);
+        virtual void realizar_tarea();
 };
 
 Mesero::Mesero() : Empleado() {
@@ -50,7 +50,7 @@ void Mesero::set_disponibilidad(bool d) {
 }
 
 void Mesero::realizar_tarea() {
-    cout << "El mesero " << get_nombre() << " está atendiendo a los clientes." << endl;
+    cout << "El mesero(a) " << get_nombre() << " esta libre" << endl;
 }
 
 #endif

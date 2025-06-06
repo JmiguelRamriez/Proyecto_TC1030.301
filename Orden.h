@@ -8,24 +8,24 @@
 using namespace std;
 
 class Orden {
-private:
-    int numero_orden;
-    Comida listaComida[10];
-    int cantidad_comidas;
-    bool estado;
+    private:
+        int numero_orden;
+        Comida listaComida[10];
+        int cantidad_comidas;
+        bool estado;
 
-public:
-    Orden();
-    Orden(int numero_orden, bool estado);
+    public:
+        Orden();
+        Orden(int numero_orden, bool estado);
 
-    int get_numero_orden();
-    bool get_estado();
-    int calcular_total();
-    string informacion();
+        int get_numero_orden();
+        bool get_estado();
+        int calcular_total();
+        string informacion();
 
-    void set_numero_orden(int n_o);
-    void set_estado(bool e);
-    void agregar_comida(Comida& comida);
+        void set_numero_orden(int n_o);
+        void set_estado(bool e);
+        void agregar_comida(Comida& comida);
 };
 
 Orden::Orden() {
