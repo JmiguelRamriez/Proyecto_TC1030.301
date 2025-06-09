@@ -1,5 +1,10 @@
 # Contexto
-Este proyecto es un sistema de simulación para gestionar el funcionamiento interno de un restaurante. Se manejan clases como clientes, meseros, cocineros, mesas, órdenes y el menú del restaurante. El sistema permite registrar las órdenes de los clientes, asignar mesas, gestionar la preparación de los alimentos y mantener la interacción con el personal del restaurante.
+Este proyecto es un sistema de simulación para gestionar el funcionamiento interno de un restaurante. Se manejan clases como clientes, meseros, cocineros, mesas, órdenes y el menú del restaurante. Implementa clases como `Cliente`, `Mesero`, `Cocinero`, `Mesa`, `Orden` y `Comida` para mostrar todas las interacciones del negocio. El sistema permite:
+
+- Registrar órdenes de los clientes con múltiples items del menú
+- Asignar mesas y personal según disponibilidad
+- Gestionar la preparación de alimentos por especialidad
+- Administrar el flujo completo desde el pedido hasta el pago
 
 ## Funcionalidad
 
@@ -23,18 +28,35 @@ Gestión de órdenes:
 - Los meseros registran la orden y la envían a cocina para ser preparada.
 
 # Consideraciones
-
-El programa está desarrollado en C++ estándar, garantizando su compatibilidad con sistemas operativos comunes como Windows, Linux o macOS.
-De momento en el main solo se imprimen objetos para demostrar que las clases funcionan correctamente.
-
-correr en linux: "/a.out"
-
-correr en windows: "a.exe"
-
-
-### Recomendaciones de UsoAdd commentMore actions
-
+Lenguaje: C++ estándar (compatible con C++11 o superior)
+Plataformas soportadas: Windows, Linux, macOS  
+  Límites del sistema:
 - Ingresar solo valores numéricos cuando se soliciten
 - Respetar los límites del sistema
 - Seguir el flujo secuencial del menú
 - Verificar disponibilidad de mesas/meseros
+
+- Máx. 10 mesas y recomendaciones
+- Máx. 6 empleados
+- Máx. 20 items en menú
+- Máx. 30 órdenes simultáneas
+- Máx. 10 comidas por orden
+
+# Instrucciones de ejecución
+Instrucciones de Ejecución
+### En Linux:
+Para compilar:
+g++ main.cpp 
+
+Para ejecutar:
+./a.out 
+
+### En Windows:
+Para compilar:
+g++ main.cpp 
+
+Para ejecutar:
+a.exe
+
+
+
