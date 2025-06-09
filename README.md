@@ -27,7 +27,7 @@ Gestión de órdenes:
 - Cada orden puede contener múltiples elementos del menú.
 - Los meseros registran la orden y la envían a cocina para ser preparada.
 
-# Consideraciones
+# Consideraciones y recomendaciones
 Lenguaje: C++ estándar (compatible con C++11 o superior)
 Plataformas soportadas: Windows, Linux, macOS  
   Límites del sistema:
@@ -36,7 +36,7 @@ Plataformas soportadas: Windows, Linux, macOS
 - Seguir el flujo secuencial del menú
 - Verificar disponibilidad de mesas/meseros
 
-- Máx. 10 mesas y recomendaciones
+- Máx. 10 mesas 
 - Máx. 6 empleados
 - Máx. 20 items en menú
 - Máx. 30 órdenes simultáneas
