@@ -43,7 +43,6 @@ Plataformas soportadas: Windows, Linux, macOS
 - Máx. 10 comidas por orden
 
 # Instrucciones de ejecución
-Instrucciones de Ejecución
 ### En Linux:
 Para compilar:
 g++ main.cpp 
