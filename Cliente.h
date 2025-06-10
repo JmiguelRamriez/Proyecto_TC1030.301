@@ -1,3 +1,14 @@
+/*
+* Cliente.h
+* [Jose Miguel Ramirez Gutierrez]
+* [A01712628]
+* [09/06/2025] 
+*
+* Clase Cliente que representa a un cliente en un restaurante.
+* Incluye información sobre el nombre del cliente, la mesa asignada y la orden realizada.
+* Permite al cliente hacer pedidos y pagar la cuenta.
+*/
+
 #ifndef CLIENTE_H
 #define CLIENTE_H
 #include <iostream>
@@ -8,30 +19,35 @@ using namespace std;
 
 class Cliente{
     private:
-    string nombre;
-    string mesa_asignada;
-    Orden orden;
-
+        string nombre; // Nombre del cliente
+        string mesa_asignada; // Mesa asignada al cliente
+        Orden orden; // Orden actual del cliente
     public:
-    Cliente();
-    Cliente(string nom, string m_s, Orden o);
+        // Constructores
+        Cliente();
+        Cliente(string nom, string m_a, Orden o); 
 
-    string get_nombre();
-    string get_mesa_asignada();
-    Orden get_orden();
+        // Getters
+        string get_nombre();
+        string get_mesa_asignada();
+        Orden get_orden();
 
-    void set_nombre(string nom);
-    void set_mesa_asignada(string m_a);
-    void set_orden(Orden o);
-    void hacer_pedido(Orden& o);
-    void pagar_cuenta();
+        // Setters
+        void set_nombre(string nom);
+        void set_mesa_asignada(string m_a);
+        void set_orden(Orden o);
+
+        // Métodos de funcionalidad
+        void pagar_cuenta();    // Procesa el pago de la orden
 };
 
+// Constructor por defecto
 Cliente::Cliente(){
     nombre = "";
     mesa_asignada = "";
 }
 
+// Constructor con parámetros
 Cliente::Cliente(string nom, string m_a, Orden o): 
 nombre(nom), mesa_asignada(m_a), orden(o){}
 
@@ -59,9 +75,15 @@ void Cliente:: set_orden(Orden o){
     orden = o;
 }
 
+// Método para hacer un pedido
 void Cliente::pagar_cuenta() {
-    float total = orden.calcular_total();
-    cout << nombre << " ha pagado $" << total << " por su orden." << endl;
+    if (orden.get_estado()) {
+        float total = orden.calcular_total();
+        cout << nombre << " ha pagado $" << total << " por su orden." << endl;
+        // Liberar mesa asociada
+    } else {
+        cout << "La orden no estalista para pagar." << endl;
+    }
 }
 
 #endif

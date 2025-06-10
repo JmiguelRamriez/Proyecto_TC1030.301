@@ -1,3 +1,15 @@
+/*
+* Empleado.h
+* [Jose Miguel Ramirez Gutierrez]
+* [A01712628]
+* [09/06/2025]
+*
+* Clase base para representar a un empleado en el restaurante.
+* Contiene atributos comunes como nombre, ID y rol.
+* Proporciona la interfaz básica para todos los tipos de empleados.
+* Clase abstracta que debe ser heredada por tipos específicos de empleados.
+*/
+
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 #include <iostream>
@@ -7,30 +19,34 @@ using namespace std;
 
 class Empleado {
     protected:
-        string nombre;
-        int id;
-        string rol;
-        string tipo_empleado; 
+        // Atributos comunes
+        string nombre; // Nombre completo del empleado
+        int id; // Identificador único
+        string rol; // Rol o puesto
+        string tipo_empleado; // Tipo específico (Cocinero/Mesero/etc)
 
     public:
-        Empleado();
+        // Constructores
+        Empleado(); 
         Empleado(string nom, int id, string rol);
-
+      
+        // Getters
         string get_nombre();
         int get_id();
         string get_rol();
         string get_tipo_empleado();  
-
+        
+        // Setters
         void set_nombre(string nom);
         void set_id(int i);
         void set_rol(string r);
         void set_tipo_empleado(string tipo); 
 
+        // Método virtual 
         virtual void realizar_tarea(); 
 };
 
-// Implementación
-
+// Constructor por defecto
 Empleado::Empleado() {
     nombre = "";
     id = 0;
@@ -38,6 +54,7 @@ Empleado::Empleado() {
     tipo_empleado = "Empleado";
 }
 
+// Constructor con parametros
 Empleado::Empleado(string nom, int i, string r) 
 : nombre(nom), id(i), rol(r) {
     tipo_empleado = "Empleado";
@@ -75,8 +92,9 @@ void Empleado::set_tipo_empleado(string tipo) {
     tipo_empleado = tipo;
 }
 
+// Metodo virtual para realizar una tarea general
 void Empleado::realizar_tarea() {
-    cout<<"Empleado"<<nombre<< " está realizando una tarea general." << endl;
+    cout<<"Empleado"<<nombre<< " esta realizando una tarea general." << endl;
 }
 
 #endif

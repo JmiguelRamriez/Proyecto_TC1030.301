@@ -1,3 +1,15 @@
+/*
+* Restaurante.h
+* [Jose Miguel Ramirez Gutierrez]
+* [A01712628]
+* [09/06/2025]
+*
+* Clase principal que gestiona todas las operaciones del restaurante.
+* Controla las mesas, empleados, menú y órdenes del sistema.
+* Permite agregar, mostrar y gestionar estos elementos.
+* Coordina la interacción entre todas las demás clases del sistema.
+*/
+
 #ifndef RESTAURANTE_R
 #define RESTAURANTE_R
 #include <iostream>
@@ -11,40 +23,43 @@
 
 using namespace std;
 
-/**
- * Restaurante
- * Clase principal que gestiona todas las operaciones del restaurante
- * 
- * Controla las mesas, empleados, menú y órdenes del sistema.
- * Permite agregar, mostrar y gestionar estos elementos.
- */
-
 class Restaurante {
     private:
-        Mesa mesas[10];
-        Empleado* empleados[6]; 
-        Comida menu[20];
-        Orden ordenes[30];
+        // Arreglos para almacenamiento
+        Mesa mesas[10]; // Arreglo de mesas (máx 10)
+        Empleado* empleados[6]; // Arreglo de punteros a empleados (máx 6)
+        Comida menu[20]; // Arreglo de comidas en el menú (máx 20)
+        Orden ordenes[30]; // Arreglo de órdenes activas (máx 30)
+        
+        // Contadores
         int total_ordenes;
         int total_empleados;
         int total_comidas;
         int total_mesas;
 
     public:
+        // Constructores
         Restaurante();
         Restaurante(Mesa m[], int t_m, Empleado* e[], int t_e, Comida c[], int t_c);
 
+        // Getters
         int get_total_mesas();
         int get_total_empleados();
         int get_total_comidas();
         int get_total_ordenes();
 
+        // Métodos de gestión
         void agregar_mesa(Mesa& m);
         void agregar_empleado(Empleado* e); 
         void realizar_tareas_empleados();
         void agregar_comida(Comida c);
         void agregar_orden(Orden o);
+        void eliminar_orden(int numero_orden);
+        
+        // Métodos de limpieza
         void liberar_empleados();
+        
+        // Métodos de información
         string mostrar_informacion();
 };
 
@@ -76,7 +91,6 @@ Restaurante::Restaurante(Mesa m[], int t_m, Empleado* e[], int t_e, Comida c[], 
     total_ordenes = 0;
 }
 
-// Getters
 int Restaurante::get_total_mesas() {
     return total_mesas; 
 }
@@ -123,6 +137,18 @@ void Restaurante::agregar_orden(Orden o) {
     }
 }
 
+void Restaurante::eliminar_orden(int numero_orden) {
+    for (int i = 0; i < total_ordenes; i++) {
+        if (ordenes[i].get_numero_orden() == numero_orden) {
+            // Mover órdenes posteriores
+            for (int j = i; j < total_ordenes - 1; j++) {
+                ordenes[j] = ordenes[j + 1];
+            }
+            total_ordenes--;
+        }
+    }
+}
+
 void Restaurante::liberar_empleados() {
     for (int i = 0; i < total_empleados; i++) {
         delete empleados[i];
@@ -132,7 +158,7 @@ void Restaurante::liberar_empleados() {
 }
 
 string Restaurante::mostrar_informacion() {
-    string info = "=== INFORMACIÓN DEL RESTAURANTE ===\n";
+    string info = "=== INFORMACION DEL RESTAURANTE ===\n";
     info += "Total de mesas: " + to_string(total_mesas) + "\n";
     info += "Total de empleados: " + to_string(total_empleados) + "\n";
     info += "Total de comidas en el menú: " + to_string(total_comidas) + "\n";
