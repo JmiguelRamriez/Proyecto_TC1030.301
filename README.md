@@ -42,6 +42,9 @@ Plataformas soportadas: Windows, Linux, macOS
 - Máx. 30 órdenes simultáneas
 - Máx. 10 comidas por orden
 
+## UML
+![UML](./ProyectoUML.png)
+
 # Instrucciones de ejecución
 ### En Linux:
 Para compilar:
