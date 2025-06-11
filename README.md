@@ -48,17 +48,26 @@ Plataformas soportadas: Windows, Linux, macOS
 # Instrucciones de ejecución
 ### En Linux:
 Para compilar:
-g++ main.cpp 
+```
+g++ main.cpp
+``` 
 
 Para ejecutar:
-./a.out 
+
+```
+./a.out
+``` 
 
 ### En Windows:
 Para compilar:
-g++ main.cpp 
+```
+g++ main.cpp
+``` 
 
 Para ejecutar:
+```
 a.exe
+```
 
 
 
