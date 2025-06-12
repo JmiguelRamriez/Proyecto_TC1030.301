@@ -43,7 +43,7 @@ Plataformas soportadas: Windows, Linux, macOS
 - Máx. 10 comidas por orden
 
 ## UML
-![UML](./ProyectoUML.png)
+![UML](./UMLProyecto.png)
 
 # Instrucciones de ejecución
 ### En Linux:
