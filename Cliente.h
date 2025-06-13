@@ -38,7 +38,7 @@ class Cliente{
         void set_orden(Orden o);
 
         // Métodos de funcionalidad
-        void pagar_cuenta();    // Procesa el pago de la orden
+        void pagar_cuenta(); // Procesa el pago de la orden
 };
 
 // Constructor por defecto
