@@ -29,7 +29,7 @@ class Empleado {
         // Constructores
         Empleado(); 
         Empleado(string nom, int id, string rol);
-      
+
         // Getters
         string get_nombre();
         int get_id();
@@ -43,7 +43,7 @@ class Empleado {
         void set_tipo_empleado(string tipo); 
 
         // Método virtual 
-        virtual void realizar_tarea(); 
+        virtual void realizar_tarea() = 0; 
 };
 
 // Constructor por defecto
@@ -93,6 +93,7 @@ void Empleado::set_tipo_empleado(string tipo) {
 }
 
 // Metodo virtual para realizar una tarea general
+
 void Empleado::realizar_tarea() {
     cout<<"Empleado"<<nombre<< " esta realizando una tarea general." << endl;
 }

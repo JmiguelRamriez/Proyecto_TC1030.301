@@ -37,7 +37,7 @@ class Mesero : public Empleado {
         void set_disponibilidad(bool d);
         
         // Método sobreescrito
-        virtual void realizar_tarea();
+        void realizar_tarea();
 };
 
 // Constructor por defecto

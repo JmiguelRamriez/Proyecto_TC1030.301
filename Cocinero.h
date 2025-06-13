@@ -36,7 +36,7 @@ class Cocinero : public Empleado {
         void set_turno(string tr);
         
         // Métodos
-        virtual void realizar_tarea();// Implementación especifica para cocineros
+        void realizar_tarea();// Implementación especifica para cocineros
 };
 
 // Constructor por defecto
